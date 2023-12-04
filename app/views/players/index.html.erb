@@ -1,0 +1,22 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="min-w-full">
+    <h1 class="font-bold text-4xl">Players</h1>
+    
+    <%= turbo_frame_tag 'players' do %>  
+      <%= render @players %>
+    <% end %>
+  </div>
+  <%= turbo_stream_from "players" do %>
+  <% end %>
+</div>
+
+<div class="w-full">
+  <%= turbo_frame_tag "new_player_form" do %>  
+    <div class="flex justify-between items-center">
+      <%= link_to "New player", new_player_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  <% end %>
+</div>

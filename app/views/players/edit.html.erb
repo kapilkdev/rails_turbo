@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "#{dom_id(@player)}" do %>  
+  <div class="mx-auto md:w-2/3 w-full">
+    <%= render "form", player: @player %>
+  </div>
+<%end%>

@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "#{dom_id player}" do %>
+<div id="<%= dom_id player %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= player.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Stats:</strong>
+    <%= player.stats %>
+  </p>
+  <%= link_to "Edit this player", edit_player_path(player), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium", target: "#{dom_id player}" %>
+
+  <div class="inline-block ml-2">
+    <%= button_to "Destroy this player", player_path(player), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+  </div>
+</div>
+<% end %>
